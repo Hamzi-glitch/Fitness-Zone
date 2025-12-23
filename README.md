@@ -1,69 +1,21 @@
-# Fitness-Zone
+# 🏋️ Fitzone Fitness Center – Membership Management System
 
-🏋️ Fitzone Fitness Center – Membership Management System
+A Java-based GUI application developed for the **STTPK2023 Advanced Programming** course. This system helps fitness center staff manage member information efficiently through a desktop application connected to a MySQL database.
 
-This project is a Java-based GUI Membership Management System developed for Fitzone Fitness Center as part of the STTPK2023 Advanced Programming course. The system is designed to help fitness center staff efficiently manage member records through a user-friendly desktop application.
+## 📌 Overview
+The Fitzone Membership Management System allows staff to register new members, calculate membership fees, search, update, delete, and display member records. All data is stored persistently in a MySQL database and retrieved when needed. The system is designed with a focus on usability, clean code structure, and proper application of object-oriented programming concepts.
 
-The application allows staff to register members, calculate membership fees, search, edit, delete, and display member information, with all data securely stored and retrieved from a MySQL database.
+## ✨ Features
+- Add new members with automatic fee calculation
+- Search members by name from the database
+- Edit existing member information and update payment totals
+- Delete member records safely
+- Display all registered members with sorting functionality
+- Reset form inputs and exit the application
 
-✨ Key Features
-
-Member Registration & Fee Calculation
-
-Supports multiple membership types (Basic, Premium, VIP)
-
-Standard and Student rate options
-
-Automatic total payment calculation based on duration
-
-Search Member
-
-Search members by name directly from the database
-
-Displays complete member details if found
-
-Edit & Delete Member Information
-
-Update membership details with automatic recalculation
-
-Safely delete member records from the database
-
-Display All Members
-
-View all registered members
-
-Data retrieved into Java Collections and sorted using Comparator and lambda expressions
-
-User-Friendly GUI
-
-Built using Java Swing components
-
-Clear navigation with validation and informative messages
-
-🛠️ Technologies & Concepts Used
-
-Java (Swing GUI)
-
-MySQL Database (CRUD operations)
-
-Object-Oriented Programming (OOP)
-
-Java Collections Framework
-
-Lambda Expressions
-
-Comparator for Data Sorting
-
-Exception Handling & Input Validation
-
-📚 Project Structure
-
-Member – Represents member data with constructors, getters, and setters
-
-DatabaseManager – Handles all database operations
-
-MainGUI – Manages user interaction and application flow
-
-🎯 Purpose
-
-This project demonstrates practical implementation of advanced Java programming concepts, GUI development, database integration, and clean software design while solving a real-world business problem.
+## 🧮 Membership Calculation
+Membership fees are calculated based on:
+- Membership type (Basic, Premium, VIP)
+- Rate type (Standard or Student)
+- Duration in months  
+Total payment is calculated automatically using:
