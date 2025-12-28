@@ -179,7 +179,7 @@ public class DatabaseManager {
 
             pstmt.setDouble(6, member.getTotal());
 
-            pstmt.setString(7, member.getMemberid()); 
+            pstmt.setString(7, member.getMembername()); 
 
 
 
