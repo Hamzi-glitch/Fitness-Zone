@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package fitzonefitnesssystem;
+
 import java.sql.*;
 import java.util.ArrayList;
 /**
@@ -20,7 +21,7 @@ public class DatabaseManager {
     }
     
     public boolean addMember (Member member){
-        String sql = "INSERT INTO members (fullname,contactNum,type,rating,duration,totalcharge) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Members (fullName,contactNum,type,rating,duration,totalCharge) VALUES (?, ?, ?, ?, ?, ?)";
     
         try (Connection conn = getConnection();PreparedStatement pstmt = conn.prepareStatement(sql)){
         pstmt.setString(1, member.getMembername());
@@ -51,7 +52,7 @@ public class DatabaseManager {
 
         ArrayList<Member> list = new ArrayList<>();
 
-        String sql = "SELECT * FROM members WHERE fullName LIKE ?";
+        String sql = "SELECT * FROM Members WHERE fullName LIKE ?";
 
 
 
@@ -108,7 +109,7 @@ public class DatabaseManager {
 
         ArrayList<Member> list = new ArrayList<>();
 
-        String sql = "SELECT * FROM members";
+        String sql = "SELECT * FROM Members";
 
 
 
@@ -156,7 +157,7 @@ public class DatabaseManager {
 
     public boolean updateMember(Member member) {
 
-        String sql = "UPDATE members SET fullName=?, contactNum=?, type=?, rating=?, duration=?, totalCharge=? WHERE memberID=?";
+        String sql = "UPDATE Members SET fullName=?, contactNum=?, type=?, rating=?, duration=?, totalCharge=? WHERE memberID=?";
 
 
 
@@ -198,9 +199,9 @@ public class DatabaseManager {
 
     }
 
-    public boolean deleteMember(int id) {
+    public boolean deleteMember(String name) {
 
-        String sql = "DELETE FROM members WHERE memberID=?";
+        String sql = "DELETE FROM Members WHERE fullName=?";
 
 
 
@@ -210,7 +211,7 @@ public class DatabaseManager {
 
 
 
-            pstmt.setInt(1, id);
+            pstmt.setString(1, name);
 
             int rowsAffected = pstmt.executeUpdate();
 
@@ -229,4 +230,6 @@ public class DatabaseManager {
     }
     
 }
+    
+
     
