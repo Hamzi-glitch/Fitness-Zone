@@ -157,7 +157,7 @@ public class DatabaseManager {
 
     public boolean updateMember(Member member) {
 
-        String sql = "UPDATE Members SET fullName=?, contactNum=?, type=?, rating=?, duration=?, totalCharge=? WHERE memberID=?";
+        String sql = "UPDATE Members SET fullName=?, contactNum=?, type=?, rating=?, duration=?, totalCharge=? WHERE fullName=?";
 
 
 
