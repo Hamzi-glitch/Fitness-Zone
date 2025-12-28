@@ -8,7 +8,9 @@ package fitzonefitnesssystem;
  *
  * @author Aleph
  */
+
 public class Member {
+
     private String memberid;
     private String membername;
     private String contactNum;
@@ -17,16 +19,22 @@ public class Member {
     private int duration;
     private double total;
 
-    public Member(String membername, String contactNum, String membership, String rate, int duration) {
+   
+    public Member(String membername, String contactNum,
+                  String membership, String rate, int duration) {
         this.membername = membername;
         this.contactNum = contactNum;
         this.membership = membership;
         this.rate = rate;
         this.duration = duration;
-        determinrate(membership, rate);
+        calculateTotal();
     }
     
-    public Member(String memberid, String membername, String contactNum, String membership, String rate, int duration, double total) {
+    
+
+    
+    public Member(String memberid, String membername, String contactNum,
+                  String membership, String rate, int duration, double total) {
         this.memberid = memberid;
         this.membername = membername;
         this.contactNum = contactNum;
@@ -36,10 +44,7 @@ public class Member {
         this.total = total;
     }
 
-    public int getDuration() {
-        return duration;
-    }
-
+   
     public String getMemberid() {
         return memberid;
     }
@@ -51,7 +56,7 @@ public class Member {
     public String getContactNum() {
         return contactNum;
     }
-    
+
     public String getMembership() {
         return membership;
     }
@@ -60,44 +65,67 @@ public class Member {
         return rate;
     }
 
+    public int getDuration() {
+        return duration;
+    }
+
     public double getTotal() {
         return total;
     }
+
     
+    public void setMemberid(String memberid) {
+        this.memberid = memberid;
+    }
+
+    public void setMembername(String membername) {
+        this.membername = membername;
+    }
+
+    public void setContactNum(String contactNum) {
+        this.contactNum = contactNum;
+    }
+
+    public void setMembership(String membership) {
+        this.membership = membership;
+        calculateTotal();
+    }
+
+    public void setRate(String rate) {
+        this.rate = rate;
+        calculateTotal();
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+        calculateTotal();
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+
     
-    
-    public double determinrate(String membership, String rate) {
-        if(this.rate.equalsIgnoreCase("Student")){
-            if(membership.equalsIgnoreCase("Premium")){
-                total = 150;
-                
+    private void calculateTotal() {
+        double baseRate = 0;
+
+        if (rate == null || membership == null) return;
+
+        if (rate.equalsIgnoreCase("Student")) {
+            switch (membership) {
+                case "Basic" -> baseRate = 80;
+                case "Premium" -> baseRate = 150;
+                case "VIP" -> baseRate = 280;
             }
-        
-            else if(membership.equalsIgnoreCase("Vip")){
-                total = 280;
-                
+        } else { // Standard
+            switch (membership) {
+                case "Basic" -> baseRate = 120;
+                case "Premium" -> baseRate = 200;
+                case "VIP" -> baseRate = 350;
             }
-        
-            else if(membership.equalsIgnoreCase("Basic")){
-                total = 80;
-                
-            }
-            }else{
-                if(membership.equalsIgnoreCase("Premium")){
-                    total = 200;
-                    
-                }
-        
-                else if(membership.equalsIgnoreCase("Vip")){
-                    total = 350;
-                    
-                }
-        
-                else if(membership.equalsIgnoreCase("Basic")){
-                    total = 120;
-                    
-                }
-            }
-        return this.total = total*this.duration;
+        }
+
+        this.total = baseRate * duration;
     }
 }
+
